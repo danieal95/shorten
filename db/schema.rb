@@ -10,11 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213035606) do
+ActiveRecord::Schema.define(version: 20171213090731) do
 
   create_table "logs", force: :cascade do |t|
     t.integer "short_id"
-    t.datetime "seen"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["short_id"], name: "index_logs_on_short_id"

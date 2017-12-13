@@ -31,10 +31,7 @@ class ShortController < ApplicationController
         message: "The shortcode cannot be found in the system"
       }.to_json
     else
-      log = Log.new
-      log.short = short
-      log.seen = DateTime.now
-      log.save
+      log = Log.create(short: short)
       render status: 302, location: short['url'].to_s, layout: false, json: {
         Location: short['url']
       }
