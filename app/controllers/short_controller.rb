@@ -44,7 +44,7 @@ class ShortController < ApplicationController
         message: "The shortcode cannot be found in the system"
       }.to_json
     else
-      log = Log.where(short: short).order('seen DESC')
+      log = Log.where(short: short).order('created_at DESC')
       redirectCount = log.count
       lastSeenDate = (redirectCount == 0) ? nil : log.first['created_at']
       render status: 200, json: {
