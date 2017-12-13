@@ -1,0 +1,2 @@
+module ShortHelper
+end

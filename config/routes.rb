@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post '/shorten', to: 'short#create'
+  get '/:shortcode', to: 'short#show'
+  get '/:shortcode/stats', to: 'short#stat'
 end
