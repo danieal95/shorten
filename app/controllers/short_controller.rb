@@ -46,9 +46,9 @@ class ShortController < ApplicationController
     else
       log = Log.where(short: short).order('created_at DESC')
       redirectCount = log.count
-      lastSeenDate = (redirectCount == 0) ? nil : log.first['created_at']
+      lastSeenDate = (redirectCount == 0) ? nil : log.first['created_at'].iso8601
       render status: 200, json: {
-        startDate: short['created_at'],
+        startDate: short['created_at'].iso8601,
         lastSeenDate: lastSeenDate,
         redirectCount: redirectCount
       }
